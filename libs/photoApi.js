@@ -28,13 +28,14 @@ class FetchApiData {
                         let photoArray = [];
                         // for each item in API data photo
                         for (let i in arrayForPhotos) {
-                            //console.log(arrayForPhotos[i].$.id);
+                            console.log(arrayForPhotos[i]);
+                           
                             try {
                                 // pass the JSON object to the model function in photoModel => filter unneccesary data
                                 let photodetails = new photoModel(arrayForPhotos[i].$);
                                 // Once the validation of data has been approved insert the variable into the array
                                 photoArray.push(photodetails);
-
+                                console.log(photoArray);
                             } catch (e) {
                                 console.log(`Error ${e.message}`);
                             }
