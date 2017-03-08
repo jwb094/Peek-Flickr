@@ -1,0 +1,11 @@
+/*map styling*/
+  #map {
+    height: 100%;
+    width: 1250px;
+    text-align: center;
+  }
+  html, body {
+    height: 80%;
+ }
+
+

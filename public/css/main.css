@@ -1,0 +1,67 @@
+
+body {
+    background-color: brown;
+}
+
+
+nav{
+    background-color: firebrick;
+}
+
+h1 {
+    font-family: 'PeepsFont';
+    margin-bottom: 0%;
+    position: absolute;
+     display: inline-block;
+     font-size: 170px;
+     padding-left: 200px;
+     padding-top: 40px;
+     color: black;
+}
+
+
+
+
+
+
+
+#searchBar {
+      border: 1px solid #97D6B2;
+      color: black;
+}
+
+
+
+h2 {
+    font-family: 'PeepsFont';
+    text-align: center;
+}
+
+
+
+
+
+footer {
+    width: 100%;
+
+}
+ @media only screen and (max-width: 900px) {
+
+	.home h1 {
+		font-size:200%;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+
+	.home h1 {
+		font-size:190%;
+	}
+}
+
+@media only screen and (max-width: 580px) {
+
+	.home h1 {
+		font-size:150%;
+	}
+}
