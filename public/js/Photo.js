@@ -1,4 +1,3 @@
-
 $(() => {
     let map;
    
@@ -13,12 +12,25 @@ $(() => {
             }
         })      
            .then((data) => {
-                initMap(data);
+               console.log(data.result);
+             // initMap(data);
+             for (let i in data.result) {
+                    console.log(data.result[i]);
+                    $('#picData').append(`<tr>
+                    <td> 
+                    <a name="picture" 
+                    data-title="${data.result[i].title}" 
+                    data-image="${data.result[i].url_l}">${data.result[i].title} </a></td>
+                    </tr>`)
+             }
+
             });
-    })
+    });
+       });
+    //}
     //initialises the google map
-    function initMap(data) {
-        console.log(data);
+function initMap() {
+        //console.log();
         let markers = [];
         //centers the map to a specific location
         var uluru = { lat: 51.643173, lng: 0.050168 };
@@ -26,16 +38,15 @@ $(() => {
             zoom: 3,
             center: uluru
         });
+        // let markerData = data.result;
 
-        let markerData = data.result;
-
-        for (let i in markerData) {
-            console.log(markerData[i]);
-            var pos = new google.maps.LatLng(markerData[i].latitude, markerData[i].longitude);
-            //When function is called pass in the image URL
-            createMarker(pos, markerData[i].title, markerData[i].url_l);
-        }
-    }
+        // for (let i in markerData) {
+        //     console.log(markerData[i]);
+        //     var pos = new google.maps.LatLng(markerData[i].latitude, markerData[i].longitude);
+        //     //When function is called pass in the image URL
+        //     createMarker(pos, markerData[i].title, markerData[i].url_l);
+        // }
+   }
 
     //passing the photo image URL in this function
     function createMarker(pos, t, url_l) {
@@ -59,7 +70,3 @@ $(() => {
         return marker;
     }
 
-});
-
-
- 
