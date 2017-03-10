@@ -8,16 +8,7 @@ nav{
     background-color: firebrick;
 }
 
-h1 {
-    font-family: 'PeepsFont';
-    margin-bottom: 0%;
-    position: absolute;
-     display: inline-block;
-     font-size: 170px;
-     padding-left: 200px;
-     padding-top: 40px;
-     color: black;
-}
+
 
 
 
@@ -32,17 +23,23 @@ h1 {
 
 
 
-h2 {
-    font-family: 'PeepsFont';
-    text-align: center;
-}
+
 
 /*map styling*/
   #map {
-    height: 100%;
+    /*height: 100%;
     width: 1250px;
-    text-align: center;
+    text-align: center;*/
+       height: 400px;
+        width: 100%;
+        border:2px goldenrod solid;
   }
+
+  #table-scroll {
+height: 400px;
+  overflow:auto;  
+  margin-top:20px;
+}
   html, body {
     height: 80%;
  }
