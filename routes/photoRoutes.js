@@ -8,6 +8,8 @@ const photoController = require('../controllers/photoController');
 // call method airportDetailController.search to search for Airports 
 router.post("/photo/:photo", photoController.search)
 
+// router.post("/latlong/:pic", photoController.picLoc)
+
 
 
 module.exports = router;

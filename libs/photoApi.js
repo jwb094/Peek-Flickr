@@ -16,11 +16,11 @@ class FetchApiData {
         let details;
         return new Promise(
             (resolve, reject) => {
-                rest.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0e57f157ea48b90d141ea90ccec28d67&text=${photo}&extras=url_l`).on('complete', function (photoResult) {
+                rest.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0e57f157ea48b90d141ea90ccec28d67&text=${photo}&extras=geo,url_l`).on('complete', function(photoResult) {
                     if (photoResult instanceof Error) {
                         reject(photoResult);
                     } else {
-                        to_json(photoResult, function (error, data) {
+                        to_json(photoResult, function(error, data) {
                             details = JSON.stringify(data);
                         })
                         let PhotoJSON = JSON.parse(details);
@@ -28,18 +28,16 @@ class FetchApiData {
                         let photoArray = [];
                         // for each item in API data photo
                         for (let i in arrayForPhotos) {
-                            console.log(arrayForPhotos[i]);
-                           
                             try {
                                 // pass the JSON object to the model function in photoModel => filter unneccesary data
                                 let photodetails = new photoModel(arrayForPhotos[i].$);
                                 // Once the validation of data has been approved insert the variable into the array
                                 photoArray.push(photodetails);
-                                console.log(photoArray);
                             } catch (e) {
                                 console.log(`Error ${e.message}`);
                             }
                         }
+                        console.log("PhotoArray" + photoArray);
                         resolve(photoArray);
                     }
                 });

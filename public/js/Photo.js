@@ -20,9 +20,11 @@ $(() => {
                     console.log(data.result[i]);
                     $('#picData').append(`<tr>
                     <td> 
-                    <a name="picture" 
+                    <a name="picture" class="picInfo"
+                    data-id="${data.result[i].id}"
                     data-title="${data.result[i].title}" 
-                    data-image="${data.result[i].url_l}">${data.result[i].title} </a></td>
+                    data-image="${data.result[i].url_l}"
+                    data-target="#modal1" href="#modal1">${data.result[i].title} </a></td>
                     </tr>`)
                 }
 
@@ -32,13 +34,40 @@ $(() => {
             if (event.target.name === "picture") {
                 let title = $(event.target).attr('data-title');
                 let image = $(event.target).attr('data-image');
-
-
-
-                picModalDetails(name, image);
+                picModalDetails(title, image);
             }
+            //picGeoData($(event.target).attr("data-id"));
         });
     });
+
+
+
+
+    $('#picData').on('click', (event) => {
+        //console.log(event.target.name);
+        if (event.target.name === "picture") {
+            let picLatandLong = $(event.target).attr("data-id");
+            console.log(picLatandLong);
+            picGeoData(picLatandLong);
+        }
+
+    });
+
+    function picGeoData(picLatandLong) {
+        console.log(picLatandLong);
+        $.ajax({
+            url: `/latlong/${picLatandLong}`,
+            method: 'POST',
+            data: {
+                pic: picLatandLong
+            }
+        })
+            .then((data) => {
+                console.log(data);
+
+            });
+    }
+
 });
 
 //initialises the google map
@@ -49,6 +78,17 @@ function initMap() {
         center: uluru
     });
 }
+
+
+function picModalDetails(title, image) {
+    $('#modalHeader').html(`<h4>${title}</h4>`);
+    $('#modalText').html(`
+  <div class="row">
+    <div class="col s12 m12 l12"><img class="modalImg" src="${image}" width=75% height=75%/></div>
+     </div>`);
+
+}
+
 
 //passing the photo image URL in this function
 /*function createMarker(pos, t, url_l) {

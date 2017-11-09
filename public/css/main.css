@@ -9,13 +9,6 @@ nav{
 }
 
 
-
-
-
-
-
-
-
 #searchBar {
       border: 1px solid #97D6B2;
       color: black;
@@ -45,7 +38,10 @@ height: 400px;
  }
 
 
-
+.modal{
+width:500px;
+height:500px;
+}
 footer {
     width: 100%;
 

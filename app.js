@@ -15,7 +15,7 @@ app.use(express.static('public'));
 app.use(routes);
 app.use(photoRoutes);
 
-//( environemnt || local use)
+//( environemnt=> different envi e.g. devices || local use)
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server listening on port ${process.env.PORT || 3000}`);
 });

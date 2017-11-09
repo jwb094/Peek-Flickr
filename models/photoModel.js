@@ -19,21 +19,18 @@ class PhotoModel {
             throw new Error("Cannot display photo without a valid latitude value");
         } else {
             this.latitude = obj.latitude;
-             console.log(this.latitude);
         }
 
         if (obj.longitude == "0") {
             throw new Error("Cannot display photo without a valid longitude value");
         } else {
             this.longitude = obj.longitude;
-            console.log(this.longitude);
         }
 
         if (!obj.url_l) {
             throw new Error("Cannot display photo without valid URL");
         } else {
             this.url_l = obj.url_l;
-            //console.log(this.url_l);
         }
     }
     //OUTCOME
