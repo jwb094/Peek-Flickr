@@ -1,8 +1,8 @@
 let map;
 $(() => {
 
-    $('.modal').modal();
-
+    //$('.modal').modal();
+    //System recieves Request data from client side
     $("#submitSearch").click((e) => {
         e.preventDefault();
         let searchphoto = $('#search').val();
@@ -13,6 +13,8 @@ $(() => {
                     photo: $('#search').val()
                 }
             })
+            //System sends Response information
+            //calls the method which requires information as parameter
             .then((data) => {
                 console.log(data);
                 initMap(data);
