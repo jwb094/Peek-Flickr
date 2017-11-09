@@ -7,12 +7,12 @@ $(() => {
         e.preventDefault();
         let searchphoto = $('#search').val();
         $.ajax({
-            url: `/photo/${searchphoto}`,
-            method: 'POST',
-            data: {
-                photo: $('#search').val()
-            }
-        })
+                url: `/photo/${searchphoto}`,
+                method: 'POST',
+                data: {
+                    photo: $('#search').val()
+                }
+            })
             .then((data) => {
                 console.log(data.result);
                 // initMap(data);
@@ -56,12 +56,12 @@ $(() => {
     function picGeoData(picLatandLong) {
         console.log(picLatandLong);
         $.ajax({
-            url: `/latlong/${picLatandLong}`,
-            method: 'POST',
-            data: {
-                pic: picLatandLong
-            }
-        })
+                url: `/latlong/${picLatandLong}`,
+                method: 'POST',
+                data: {
+                    pic: picLatandLong
+                }
+            })
             .then((data) => {
                 console.log(data);
 
@@ -74,20 +74,20 @@ $(() => {
 function initMap() {
     var uluru = { lat: 51.5311716, lng: -0.1457836 };
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 6,
+        zoom: 4,
         center: uluru
     });
 }
 
 
-function picModalDetails(title, image) {
-    $('#modalHeader').html(`<h4>${title}</h4>`);
-    $('#modalText').html(`
-  <div class="row">
-    <div class="col s12 m12 l12"><img class="modalImg" src="${image}" width=75% height=75%/></div>
-     </div>`);
+// function picModalDetails(title, image) {
+//     $('#modalHeader').html(`<h4>${title}</h4>`);
+//     $('#modalText').html(`
+//   <div class="row">
+//     <div class="col s12 m12 l12"><img class="modalImg" src="${image}" width=75% height=75%/></div>
+//      </div>`);
 
-}
+// }
 
 
 //passing the photo image URL in this function
@@ -111,4 +111,3 @@ function picModalDetails(title, image) {
 
     return marker;
 }*/
-
