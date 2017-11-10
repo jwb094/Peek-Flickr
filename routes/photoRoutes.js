@@ -5,11 +5,8 @@ const photoController = require('../controllers/photoController');
 
 /* API CALLS */
 
-// call method airportDetailController.search to search for Airports 
+// call method photoController.search to search for photo by flickr users 
 router.post("/photo/:photo", photoController.search)
-
-// router.post("/latlong/:pic", photoController.picLoc)
-
 
 
 module.exports = router;

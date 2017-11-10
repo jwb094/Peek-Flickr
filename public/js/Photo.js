@@ -7,8 +7,11 @@ $(() => {
         e.preventDefault();
         let searchphoto = $('#search').val();
         $.ajax({
+                //goes to the url
                 url: `/photo/${searchphoto}`,
+                // http 
                 method: 'POST',
+                //data from client side passing through
                 data: {
                     photo: $('#search').val()
                 }
@@ -19,34 +22,9 @@ $(() => {
                 console.log(data);
                 initMap(data);
             });
-        // .then((data) => {
-        //     console.log(data.result);
-        //     // initMap(data);
-        //     for (let i in data.result) {
-        //         console.log(data.result[i]);
-        //         $('#picData').append(`<tr>
-        //         <td> 
-        //         <a name="picture" class="picInfo"
-        //         data-id="${data.result[i].id}"
-        //         data-title="${data.result[i].title}" 
-        //         data-image="${data.result[i].url_l}"
-        //         data-target="#modal1" href="#modal1">${data.result[i].title} </a></td>
-        //         </tr>`)
-        //     }
-
-        // });
-        // $('body').on('click', (event) => {
-        //     console.log(event.target.name);
-        //     if (event.target.name === "picture") {
-        //         let title = $(event.target).attr('data-title');
-        //         let image = $(event.target).attr('data-image');
-        //         picModalDetails(title, image);
-        //     }
-        //     //picGeoData($(event.target).attr("data-id"));
-        // });
     })
 
-    //initialises the google map
+    //initialises the google map / display flickr api information on google maps
     function initMap(data) {
         console.log(data);
         let markers = [];
@@ -66,35 +44,6 @@ $(() => {
             createMarker(pos, markerData[i].title, markerData[i].url_l);
         }
     }
-
-
-
-
-    // $('#picData').on('click', (event) => {
-    //     //console.log(event.target.name);
-    //     if (event.target.name === "picture") {
-    //         let picLatandLong = $(event.target).attr("data-id");
-    //         console.log(picLatandLong);
-    //         picGeoData(picLatandLong);
-    //     }
-
-    // });
-
-    // function picGeoData(picLatandLong) {
-    //     console.log(picLatandLong);
-    //     $.ajax({
-    //             url: `/latlong/${picLatandLong}`,
-    //             method: 'POST',
-    //             data: {
-    //                 pic: picLatandLong
-    //             }
-    //         })
-    //         .then((data) => {
-    //             console.log(data);
-
-    //         });
-    // }
-
 });
 
 //initialises the google map
@@ -107,13 +56,6 @@ function initMap() {
 }
 
 
-// function picModalDetails(title, image) {
-//     $('#modalHeader').html(`<h4>${title}</h4>`);
-//     $('#modalText').html(`
-//   <div class="row">
-//     <div class="col s12 m12 l12"><img class="modalImg" src="${image}" width=75% height=75%/></div>
-//      </div>`);
-// }
 
 
 //passing the photo image URL in this function

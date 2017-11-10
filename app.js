@@ -8,7 +8,7 @@ const photoRoutes = require("./routes/photoRoutes");
 
 app.set('view engine', 'ejs');
 
-
+//middleware used for web-app
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
