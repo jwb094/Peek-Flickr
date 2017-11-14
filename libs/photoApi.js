@@ -1,7 +1,7 @@
 const rest = require('restler');
 const to_json = require('xmljson').to_json;
 const photoModel = require("../models/photoModel");
-
+require('dotenv').config();
 
 
 class FetchApiData {
