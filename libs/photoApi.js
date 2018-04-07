@@ -1,7 +1,6 @@
 const rest = require('restler');
 const to_json = require('xmljson').to_json;
 const photoModel = require("../models/photoModel");
-//const dotenv = require('dotenv');
 const api_key = process.env.API_KEY;
 
 
@@ -20,7 +19,7 @@ class FetchApiData {
         return new Promise(
             (resolve, reject) => {
                 //Calls the Flickr Api
-                rest.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0e57f157ea48b90d141ea90ccec28d67&text=${photo}&extras=geo,url_l`).on('complete', function(photoResult) {
+                rest.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api_key}&text=${photo}&extras=geo,url_l`).on('complete', function(photoResult) {
                     //if result is an error => reject the result of api call
                     if (photoResult instanceof Error) {
                         reject(photoResult);
