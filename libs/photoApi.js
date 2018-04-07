@@ -14,8 +14,6 @@ class FetchApiData {
 
     static getSearchedPhoto(photo) {
         let details;
-        console.log(api_key);
-        //console.log(process.env.API_KEY);
         return new Promise(
             (resolve, reject) => {
                 //Calls the Flickr Api
