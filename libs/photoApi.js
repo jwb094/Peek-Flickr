@@ -1,7 +1,8 @@
 const rest = require('restler');
 const to_json = require('xmljson').to_json;
 const photoModel = require("../models/photoModel");
-require('dotenv').config();
+//const dotenv = require('dotenv');
+const api_key = process.env.API_KEY;
 
 
 class FetchApiData {
@@ -14,6 +15,8 @@ class FetchApiData {
 
     static getSearchedPhoto(photo) {
         let details;
+        console.log(api_key);
+        //console.log(process.env.API_KEY);
         return new Promise(
             (resolve, reject) => {
                 //Calls the Flickr Api

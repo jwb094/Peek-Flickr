@@ -26,7 +26,7 @@ $(() => {
 
     //initialises the google map / display flickr api information on google maps
     function initMap(data) {
-        console.log(data);
+        //console.log(data);
         let markers = [];
         //centers the map to a specific location
         var uluru = { lat: 51.643173, lng: 0.050168 };
@@ -38,7 +38,7 @@ $(() => {
         let markerData = data.result;
 
         for (let i in markerData) {
-            console.log(markerData[i].latitude);
+            //console.log(markerData[i].latitude);
             var pos = new google.maps.LatLng(markerData[i].latitude, markerData[i].longitude);
             //When function is called pass in the image URL
             createMarker(pos, markerData[i].title, markerData[i].url_l);
@@ -66,10 +66,11 @@ function createMarker(pos, t, url_l) {
         title: t
     });
 
-    let contentString = `<img src="${url_l}" />`;
+    let contentString = `<h6>${t}</h6><brS><img style="height:250px;width:250px;" src="${url_l}" />`;
 
     let infowindow = new google.maps.InfoWindow({
         content: contentString
+
     });
 
     google.maps.event.addListener(marker, 'click', function() {
