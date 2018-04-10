@@ -11,7 +11,7 @@
 ***
 ## Project Brief
 
-Objective is to display images on google maps from 
+Objective is to display images on google maps from FlickrApi
 
 - Use FlickrApi to retrieve pictures from search criteria 
 - Return a list of pictures in object form
